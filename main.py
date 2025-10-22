@@ -30,7 +30,7 @@ class LoginWindow(QDialog):
         title.setStyleSheet("color: #2c3e50;")
         layout.addWidget(title)
         
-        subtitle = QLabel("Gestión de Archivos By Derek Calderón")
+        subtitle = QLabel("Gestión de Archivos")
         subtitle.setFont(QFont("Arial", 14))
         subtitle.setAlignment(Qt.AlignmentFlag.AlignCenter)
         subtitle.setStyleSheet("color: #7f8c8d;")
@@ -118,14 +118,25 @@ class LoginWindow(QDialog):
         password = self.password_input.text().strip()
         
         if not username or not password:
-            QMessageBox.warning(self, "Error", "Por favor ingrese usuario y contraseña")
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Warning)
+            msg.setWindowTitle("Error")
+            msg.setText("Por favor ingrese usuario y contraseña")
+            msg.setStyleSheet("QLabel{color: #2c3e50;} QPushButton{min-width: 80px;}")
+            msg.exec()
             return
         
         if self.fat_system.login(username, password):
             self.accept()
         else:
-            QMessageBox.critical(self, "Error", "Usuario o contraseña incorrectos")
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Critical)
+            msg.setWindowTitle("Error")
+            msg.setText("Usuario o contraseña incorrectos")
+            msg.setStyleSheet("QLabel{color: #2c3e50;} QPushButton{min-width: 80px;}")
+            msg.exec()
             self.password_input.clear()
+            self.username_input.setFocus()
 
 class MainWindow(QMainWindow):
     def __init__(self, fat_system):
@@ -1223,12 +1234,22 @@ def main():
         }
     """)
     
-    login_window = LoginWindow()
+    # Mantener referencia a la ventana principal
+    main_window = None
     
-    if login_window.exec() == QDialog.DialogCode.Accepted:
-        main_window = MainWindow(login_window.fat_system)
-        main_window.show()
-        sys.exit(app.exec())
+    while True:
+        login_window = LoginWindow()
+        
+        if login_window.exec() == QDialog.DialogCode.Accepted:
+            # Login exitoso, crear ventana principal
+            main_window = MainWindow(login_window.fat_system)
+            main_window.show()
+            break
+        else:
+            # Usuario cerró la ventana de login, salir del programa
+            sys.exit(0)
+    
+    sys.exit(app.exec())
 
 if __name__ == "__main__":
     main()

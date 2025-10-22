@@ -8,5 +8,10 @@
     "username": "derek",
     "password": "123",
     "is_admin": false
+  },
+  {
+    "username": "derek2",
+    "password": "123",
+    "is_admin": false
   }
 ]

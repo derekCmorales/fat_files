@@ -12,6 +12,10 @@
       "derek": {
         "lectura": true,
         "escritura": false
+      },
+      "derek2": {
+        "lectura": true,
+        "escritura": false
       }
     }
   },
@@ -30,5 +34,27 @@
         "escritura": true
       }
     }
+  },
+  {
+    "nombre": "pruba2.txt",
+    "ruta_inicial": "pruba2.txt_block_0.json",
+    "papelera": false,
+    "total_caracteres": 11,
+    "fecha_creacion": "2025-10-22T00:49:39.721185",
+    "fecha_modificacion": "2025-10-22T00:49:48.199423",
+    "fecha_eliminacion": null,
+    "owner": "admin",
+    "permisos": {}
+  },
+  {
+    "nombre": "derek.txt",
+    "ruta_inicial": "derek.txt_block_0.json",
+    "papelera": false,
+    "total_caracteres": 5,
+    "fecha_creacion": "2025-10-22T00:51:39.463598",
+    "fecha_modificacion": "2025-10-22T00:51:56.180948",
+    "fecha_eliminacion": null,
+    "owner": "admin",
+    "permisos": {}
   }
 ]
