@@ -1,0 +1,34 @@
+[
+  {
+    "nombre": "hola.txt",
+    "ruta_inicial": "hola.txt_block_0.json",
+    "papelera": false,
+    "total_caracteres": 44,
+    "fecha_creacion": "2025-10-22T00:34:36.646465",
+    "fecha_modificacion": "2025-10-22T00:36:24.762790",
+    "fecha_eliminacion": null,
+    "owner": "admin",
+    "permisos": {
+      "derek": {
+        "lectura": true,
+        "escritura": false
+      }
+    }
+  },
+  {
+    "nombre": "prueba.txt",
+    "ruta_inicial": "prueba.txt_block_0.json",
+    "papelera": false,
+    "total_caracteres": 4,
+    "fecha_creacion": "2025-10-22T00:40:47.973850",
+    "fecha_modificacion": "2025-10-22T00:40:47.973850",
+    "fecha_eliminacion": null,
+    "owner": "admin",
+    "permisos": {
+      "derek": {
+        "lectura": true,
+        "escritura": true
+      }
+    }
+  }
+]
